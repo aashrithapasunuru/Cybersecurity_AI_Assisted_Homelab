@@ -3,6 +3,7 @@ Hands-on OPNsense home lab for firewall, network security, logging &amp; SOC pra
 
 ## Objectives
 
+- OPNsense lab set up
 - Build a virtual firewall lab
 - Understand WAN and LAN networking
 - Configure firewall rules
