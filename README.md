@@ -309,6 +309,24 @@ Document
 
 ```
 
+## Security Documentation
+
+Each significant lab and investigation will document:
+
+- Objective
+- Lab environment
+- Architecture
+- Configuration
+- Tools and commands used
+- Observations
+- Security findings
+- Troubleshooting steps
+- Detection results
+- AI-assisted analysis
+- Risk assessment
+- Final findings
+- Lessons learned
+  
 ## Disclaimer
 
 All security testing and experimentation in this repository is performed in controlled laboratory environments for educational and defensive cybersecurity purposes.
