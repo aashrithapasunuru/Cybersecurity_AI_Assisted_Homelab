@@ -1,4 +1,5 @@
 ## Lab Topology
+``` text
                  Internet
                     │
                  OPNsense
@@ -9,3 +10,5 @@
              │             │
         Windows VM      Kali VM
           Victim         Analyst
+
+```
