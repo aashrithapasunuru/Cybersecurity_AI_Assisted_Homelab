@@ -315,8 +315,6 @@ All security testing and experimentation in this repository is performed in cont
 
 Do not use security tools, techniques, or scripts against systems without proper authorization.
 
-Project Status
-
 ## 🚧 Active Development
 
 This homelab is continuously evolving as new cybersecurity tools, security scenarios, automation projects, detection techniques, SOC investigations, and AI-assisted workflows are added.
