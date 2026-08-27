@@ -1,27 +1,28 @@
 # Lab 1 — Network Security Monitoring & Traffic Analysis
 
-A hands-on SOC lab focused on **security monitoring, alert detection, log analysis, incident investigation, automation, and AI-assisted cybersecurity analysis**.
+A hands-on cybersecurity lab focused on **network security monitoring, traffic analysis, firewall monitoring, reconnaissance detection, and AI-assisted investigation**.
 
-This lab simulates a basic SOC workflow using network, endpoint, firewall, SIEM, and AI-assisted investigation techniques.
+This lab simulates a basic SOC investigation using an isolated virtual network environment.
 
 ---
 
 ## 🎯 Objective
 
-The main objective of this lab is to practice how a SOC analyst investigates a security event from detection to final assessment.
+The main objective of this lab is to practice how a SOC analyst monitors and investigates network activity from detection to final assessment.
 
 The lab focuses on:
 
-- Establishing a network baseline
-- Generating controlled security activity
-- Detecting suspicious activity
-- Collecting security logs
-- Investigating alerts
-- Correlating security events
-- Assessing security risk
-- Using AI to assist investigation
-- Validating AI-generated findings
-- Documenting the investigation
+* Establishing a network baseline
+* Understanding normal network communication
+* Generating controlled network activity
+* Monitoring firewall activity
+* Analyzing network traffic
+* Investigating suspicious connections
+* Identifying reconnaissance activity
+* Assessing security risk
+* Using AI to assist investigation
+* Validating AI-generated findings
+* Documenting the investigation
 
 ---
 
@@ -37,68 +38,52 @@ The lab uses an isolated virtual environment.
                        |
               -------------------
               |                 |
-         Windows VM          Kali / Linux
+         Windows VM          Kali Linux
               |                 |
               -------------------
                        |
-                 Security Events
+                Network Traffic
                        |
-          --------------------------
-          |            |           |
-      OPNsense       Wazuh       Windows
-        Logs         Alerts       Events
-          |            |           |
-          ----------- Splunk -------
-                       |
-                SOC Investigation
-                       |
-                 AI-Assisted
-                    Analysis
+              -------------------
+              |                 |
+         OPNsense Logs      Wireshark
+              |                 |
+              ----------- -----------
+                         |
+                  Investigation
+                         |
+                  AI-Assisted
+                     Analysis
 ```
+
+---
 
 ## 🧰 Tools & Technologies
 
 ### Virtualization & Operating Systems
 
-- VirtualBox
-- Windows VM
-- Kali Linux
-- Ubuntu/Linux VM
+* VirtualBox
+* Windows VM
+* Kali Linux
 
-### Network Security
+### Network Security & Monitoring
 
-- OPNsense
-- Nmap
-- Wireshark
-
-### SIEM & Security Monitoring
-
-- Splunk
-- Wazuh
-- Windows Event Logs
-- OPNsense Firewall Logs
-
-### Security Testing
-
-- Kali Linux
-- Nmap
-- Network traffic analysis
-- Controlled reconnaissance
-
-### Automation
-
-- Python
-- SQLite
-- REST APIs
+* OPNsense
+* Wireshark
+* Nmap
+* TCP/IP
+* ARP
+* ICMP
+* Network traffic analysis
+* Firewall monitoring
 
 ### AI
 
-- AI-assisted alert analysis
-- AI-assisted log analysis
-- AI-assisted threat analysis
-- AI-assisted risk assessment
-- AI-assisted investigation support
-- AI-assisted security reporting
+* AI-assisted network traffic analysis
+* AI-assisted security investigation
+* AI-assisted risk assessment
+* AI-assisted finding interpretation
+* AI-assisted security reporting
 
 ---
 
@@ -107,19 +92,15 @@ The lab uses an isolated virtual environment.
 ```text
 Network Baseline
        ↓
-Reconnaissance
-       ↓
-Security Event
+Controlled Network Activity
        ↓
 Detection
        ↓
-Alert Triage
+Traffic Analysis
        ↓
 Evidence Collection
        ↓
-Log Analysis
-       ↓
-Event Correlation
+Investigation
        ↓
 AI-Assisted Analysis
        ↓
@@ -130,8 +111,10 @@ Risk Assessment
 Final SOC Verdict
        ↓
 Documentation
-
 ```
+
+---
+
 ## 🧪 Lab Phases
 
 ### 1. Network Baseline
@@ -140,109 +123,162 @@ Establish normal network behavior before investigating suspicious activity.
 
 Activities include:
 
-- Identify lab systems
-- Verify IP addresses
-- Verify connectivity
-- Review normal network traffic
-- Review OPNsense firewall activity
-- Identify normal services
-- Observe normal security logs
+* Identify lab systems
+* Verify IP addresses
+* Verify connectivity
+* Review normal network traffic
+* Review OPNsense firewall activity
+* Identify expected network communication
 
 ---
 
-### 2. Reconnaissance
+### 2. Controlled Network Activity
 
-Perform controlled reconnaissance against authorized systems within the lab environment.
+Generate authorized network activity within the isolated lab environment.
 
 Activities include:
 
-- Host discovery
-- Port scanning
-- Service enumeration
-- Network mapping
+* Host discovery
+* Port scanning
+* Service enumeration
+* Network communication testing
 
 Tools:
 
-- Nmap
-- Kali Linux
-- OPNsense
-- Wireshark
+* Nmap
+* Kali Linux
+* OPNsense
+* Wireshark
 
-The objective is to understand how reconnaissance activity appears from a defensive monitoring perspective.
-
----
-
-### 3. Detection
-
-Identify suspicious or unexpected activity using available security telemetry.
-
-Detection sources include:
-
-- OPNsense firewall logs
-- Wazuh alerts
-- Windows Security Events
-- Splunk
-- Network traffic
-
-Examples include:
-
-- Repeated connection attempts
-- Port scanning
-- Failed authentication attempts
-- Suspicious network connections
-- Unexpected services
-- Unusual endpoint activity
+The objective is to understand how network reconnaissance and connection attempts appear from a defensive monitoring perspective.
 
 ---
 
-### 4. Alert Triage
+### 3. Network Traffic Analysis
 
-Determine whether a security alert requires further investigation.
+Analyze network traffic generated during the lab.
 
-Key questions include:
+Activities include:
 
-- What triggered the alert?
-- When did it occur?
-- Which host is involved?
-- Which user is involved?
-- What is the source?
-- What is the destination?
-- Is the activity expected?
-- Are there related events?
-- What is the severity?
+* Identify source and destination IP addresses
+* Examine TCP connections
+* Analyze SYN and ACK packets
+* Observe ARP traffic
+* Identify connection attempts
+* Analyze unusual or unexpected traffic
+
+Wireshark is used to inspect the network packets and understand the communication between systems.
+
+---
+
+### 4. Firewall Monitoring
+
+Review OPNsense firewall activity related to the generated network traffic.
+
+Activities include:
+
+* Review firewall logs
+* Identify source and destination addresses
+* Identify ports and protocols
+* Determine whether traffic was allowed or blocked
+* Understand how traffic crosses the firewall
 
 ---
 
 ### 5. Investigation
 
-Investigate suspicious activity using multiple sources of evidence.
+Correlate network evidence from multiple sources.
 
 Evidence may include:
 
-- OPNsense logs
-- Splunk events
-- Wazuh alerts
-- Windows Event Logs
-- Nmap results
-- Wireshark captures
-- Network information
+* OPNsense firewall logs
+* Wireshark packet captures
+* Nmap scan results
+* Source and destination IP addresses
+* Ports and protocols
+* Timestamps
 
+Key investigation questions:
 
-### 🎯 Skills Practiced
-SOC Operations
-Alert Triage
-SIEM & Log Analysis
-Network Security
-Threat Detection
-Incident Investigation
-Python Automation
-AI-Assisted Cybersecurity
-🚧 Lab Status
+* What happened?
+* Which system generated the activity?
+* Which system was targeted?
+* What ports were involved?
+* Was the activity expected?
+* Is there evidence of reconnaissance?
+* What is the potential security impact?
+
+---
+
+### 6. AI-Assisted Analysis
+
+AI is used as an **investigation assistant**, not as a replacement for analyst judgment.
+
+AI may be used to:
+
+* Explain network traffic
+* Interpret suspicious indicators
+* Identify possible attack techniques
+* Suggest additional investigation steps
+* Assist with risk assessment
+* Help summarize findings
+
+AI-generated findings are validated against the actual lab evidence before reaching a final conclusion.
+
+---
+
+## 🎯 Skills Practiced
+
+### SOC Operations
+
+* Security Monitoring
+* Network Traffic Analysis
+* Alert Investigation
+* Evidence Collection
+* Threat Detection
+* Risk Assessment
+* Incident Investigation
+
+### Networking
+
+* TCP/IP
+* ARP
+* ICMP
+* TCP connections
+* Ports and protocols
+* Network troubleshooting
+
+### Security Tools
+
+* OPNsense
+* Wireshark
+* Nmap
+* Kali Linux
+
+### AI-Assisted Security
+
+* AI-assisted investigation
+* AI-assisted traffic analysis
+* AI-assisted risk assessment
+* AI finding validation
+
+---
+
+## 🚧 Lab Status
 
 ### In Progress
 
-Hands-on investigations, evidence, screenshots, automation, and AI-assisted analysis will be added as the lab develops.
+The lab is being developed through small hands-on investigations.
 
-### ⚠️ Disclaimer
+Completed activities and evidence will be documented with:
+
+- network_baseline.md
+- reconnaissance.md
+- AI-Assisted-analysis.md
+
+---
+
+## ⚠️ Disclaimer
 
 All testing is performed in a controlled and authorized laboratory environment for educational and defensive cybersecurity purposes.
+
