@@ -30,4 +30,9 @@
 
 DNS and Internet connectivity were verified from the Kali Linux VM.
 
-- Kali → OPNsense: Successful
+Kali → OPNsense: Successful
+Kali → External IP: Successful
+Kali → Domain resolution: Successful
+DNS server: OPNsense
+Internet connectivity: Verified
+The Kali VM was able to communicate with the OPNsense gateway, reach an external IP address, and resolve external domain names successfully.
