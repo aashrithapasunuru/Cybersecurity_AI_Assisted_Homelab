@@ -1,4 +1,4 @@
-# AI-Assisted SOC Investigation Lab
+# Lab 1 — Network Security Monitoring & Traffic Analysis
 
 A hands-on SOC lab focused on **security monitoring, alert detection, log analysis, incident investigation, automation, and AI-assisted cybersecurity analysis**.
 
